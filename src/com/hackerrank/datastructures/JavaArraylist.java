@@ -10,11 +10,11 @@ public class JavaArraylist {
 
 		Scanner scan = new Scanner(System.in);
 		int n = scan.nextInt();
-		List<List<Integer>> list = new ArrayList<List<Integer>>();
+		List<List<Integer>> list = new ArrayList<>();
 
 		for (int i = 0; i < n; i++) {
 			int d = scan.nextInt();
-			List<Integer> sublist= new ArrayList<Integer>();
+			List<Integer> sublist= new ArrayList<>();
 			for (int j = 0; j < d; j++) {
 				sublist.add(j, scan.nextInt());
 			}
