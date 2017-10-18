@@ -16,9 +16,9 @@ public class JavaArraylist {
 			int d = scan.nextInt();
 			List<Integer> sublist= new ArrayList<Integer>();
 			for (int j = 0; j < d; j++) {
-				sublist.add(scan.nextInt());
+				sublist.add(j, scan.nextInt());
 			}
-			list.add(sublist);
+			list.add(i, sublist);
 		}
 
 		int q = scan.nextInt();
