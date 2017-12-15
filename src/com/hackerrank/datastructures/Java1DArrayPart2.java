@@ -1,37 +1,17 @@
 package com.hackerrank.datastructures;
 
-
-
-
 public class Java1DArrayPart2 {
 
 	public static boolean canWin(int leap, int[] game) {
+		return isSolvable(leap, game, 0);
+	}
 
-		boolean hasTurn = true;
-		int index = 0;
-		while (hasTurn) {
-			if (index+leap >= game.length - 1) {
-				return true;
-			} else if (game[index+leap] == 0) {
-				index += leap;
-				continue;
-			} else if (game[index+1] == 0) {
-				index++;
-				continue;
-			}
+	private static boolean isSolvable(int m, int[] arr, int i) {
+		if (i < 0 || arr[i] == 1) return false;
+		if ((i == arr.length - 1) || i + m > arr.length - 1) return true;
 
-			hasTurn = false;
-			for (int i = 1; i < Math.min(index, leap - 2) ; i++) {
-				if (game[index-i] != 0) {
-					break;
-				} else if (game[index-i] == 0 && game[index-i+leap] == 0) {
-					index = index-i+leap;
-					hasTurn = true;
-					break;
-				}
-			}
-		}
-		return false;
+		arr[i] = 1;
+		return isSolvable(m, arr, i + 1) || isSolvable(m, arr, i - 1) || isSolvable(m, arr, i + m);
 	}
 
 	public static void main(String[] args) {
@@ -41,4 +21,3 @@ public class Java1DArrayPart2 {
 		System.out.println( (canWin(leap, game)) ? "YES" : "NO" );
 	}
 }
-
